@@ -4,6 +4,8 @@ var jogo;
 var jogador;
 var quantidadeJogadores;
 var formulario;
+var distancia = 0
+var todosJogadores;
 
 function setup(){
     createCanvas(500,500);

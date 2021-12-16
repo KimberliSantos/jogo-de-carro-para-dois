@@ -1,6 +1,8 @@
 class Jogador{
 constructor(){
-
+this.index = null
+this.distancia = 0
+this.name = null
 
 }
 
@@ -10,10 +12,11 @@ bancoDeDados.ref("/").update({
 })
 }
 
-atualizar(nome){
-    var jogadorIndice="Jogador "+quantidadeJogadores
+atualizar(){
+    var jogadorIndice="jogadores/jogador "+this.index
     bancoDeDados.ref(jogadorIndice).set({
-        nome:nome
+        nome:this.name,
+        distancia: this.distancia
     })
 }
 
@@ -23,4 +26,10 @@ contaJogador(){
         quantidadeJogadores= dado.val()
     })
 } 
+pegaInformacaoJogador(){
+    var informacaoJogadorRef =  bancoDeDados.ref("jogadores")
+    informacaoJogadorRef.on("value",function(dado){
+todosJogadores=dado.val()
+    }) 
+}
 }
